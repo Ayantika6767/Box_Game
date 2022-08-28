@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Game</title>
+    <!--DOM MANUPULATION
+        DOM=DOCUMENT OBJECT MODEL
+        entire js is treated as a model kept in form of document;
+        so document has elements which are fetched like: document.getElementById
+    
+    
+    -->
+
+    <style>
+        body{
+            background-color: cadetblue;
+            background-image: url('https://i.pinimg.com/originals/7e/39/a7/7e39a78b9ac33b0b341f66863259fbf8.jpg');
+            padding-top: 10%;
+            flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      
+            padding-left: 30%;
+            font-size: larger;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            box-sizing: border-box;
+            
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            left: 50%;
+            border-bottom: 50%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      float: center;
+      padding: 14px 40px;
+      font-size: 16px;
+            color: aliceblue;
+            float: left;
+        }
+        #red{
+            background-color: red;
+        }
+        #blue{
+            background-color: blue;
+        }
+        #green{
+            background-color: green;
+        }
+        
+
+        .button {
+            border-radius: 10px;
+            color: darkblue;
+            background-color: rgb(229, 240, 20);
+      border: 0;
+      font-weight: bold;
+      
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+      padding: 14px 40px;
+      font-size: 16px;
+      cursor: pointer;
+  }
+  
+  .button:active {
+      transform: scale(0.98);
+  }
+  
+  .button:focus {
+      outline: 0;
+  }
+
+  #change{
+    background-color: blueviolet;
+    color: aqua;
+  }
+
+  #para{
+color: aliceblue;
+right: 40px;
+background-color: black;
+height: 100px;
+}
+        
+    </style>
+</head>
+<body>
+    
+    <button class="button"
+    onclick="alert('Click on the Start button for your next instruction')">Click if you Want to begin the game!</button>
+       <!--onclick alert button gives message on click--> 
+    <p id="para">Hi user !!</p>
+
+    <button class="button" id="change"> Start </button><br><br><br>
+
+    <!--script > 
+        document.getElementById("para").innerHTML="welcome"; 
+    </script>
+    <innerHTML relaces text in para id with its current value-->
+
+    <script>
+        document.getElementById("change").onclick=function()
+        {
+            document.getElementById("para").innerHTML="Click on any of the 3 boxes which you think will not Dissapear";
+            
+        }
+
+        
+    </script>
+
+   <center> <div class="box" id="red"  >If u touch me i'll vanish!</div>
+    <div class="box" id="blue">Dont touch me!</div>
+    <div class="box" id="green">I want to dissapear!</div>
+</center>
+<script>
+    document.getElementById("red").onclick=function()
+        {
+            document.getElementById("red").style.display="none";
+            document.getElementById("para").innerHTML="I told you not to touch me!!";
+
+        }
+        document.getElementById("blue").onclick=function()
+        {
+            document.getElementById("para").innerHTML="Congratulations!! You made it to the correct box!";
+            document.getElementById("blue").onclick=alert('Correct choice!');
+            
+        }
+        document.getElementById("green").onclick=function()
+        {
+            document.getElementById("green").style.display="none";
+            document.getElementById("para").innerHTML="Thanks for helping! But you lose! :(";
+
+        }
+
+</script>
+
+
+
+</body>
+</html>
